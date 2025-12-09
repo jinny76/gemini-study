@@ -1,0 +1,10 @@
+# Ignore gemini-cli source code (for reference only)
+gemini-cli/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
