@@ -1,0 +1,48 @@
+{
+  "name": "@google/gemini-cli-web",
+  "version": "0.1.0",
+  "description": "Gemini CLI Web Interface",
+  "type": "module",
+  "main": "dist/server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "tsx watch src/server/index.ts",
+    "dev:client": "vite",
+    "build": "npm run build:client && npm run build:server",
+    "build:server": "tsc -p tsconfig.server.json",
+    "build:client": "vite build",
+    "start": "node dist/server/index.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@google/gemini-cli-core": "*",
+    "cors": "^2.8.5",
+    "dotenv": "^17.1.0",
+    "express": "^4.21.0",
+    "multer": "^2.0.2",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@types/ws": "^8.5.10",
+    "@vitejs/plugin-react": "^4.3.0",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^9.0.0",
+    "postcss": "^8.4.38",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-markdown": "^9.0.0",
+    "tailwindcss": "^3.4.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.3.3",
+    "vite": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

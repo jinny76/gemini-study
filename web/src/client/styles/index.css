@@ -1,0 +1,235 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern AI Chat UI Styles */
+:root {
+  --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #a78bfa 100%);
+  --gradient-dark: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+  --shadow-message: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(180deg, #fafafa 0%, #f4f4f5 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+/* Header gradient */
+.header-gradient {
+  background: var(--gradient-primary);
+}
+
+/* Message bubble styles */
+.message-user {
+  background: var(--gradient-primary);
+  @apply text-white rounded-2xl rounded-br-sm shadow-soft;
+}
+
+.message-assistant {
+  @apply bg-white text-zinc-800 rounded-2xl rounded-bl-sm shadow-soft border border-zinc-100;
+}
+
+/* Avatar styles */
+.avatar-user {
+  @apply w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white text-sm font-medium;
+}
+
+.avatar-assistant {
+  @apply w-8 h-8 rounded-full bg-gradient-to-br from-zinc-100 to-zinc-200 flex items-center justify-center;
+}
+
+/* Code block in messages */
+.message-content pre {
+  @apply bg-zinc-900 text-zinc-100 p-4 rounded-xl overflow-x-auto text-sm my-3 shadow-inner;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+}
+
+.message-content code {
+  @apply bg-zinc-100 text-primary-700 px-1.5 py-0.5 rounded-md text-sm font-medium;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+}
+
+.message-content pre code {
+  @apply bg-transparent text-inherit p-0 font-normal;
+}
+
+/* Prose overrides */
+.message-content p {
+  @apply my-2 leading-relaxed;
+}
+
+.message-content p:first-child {
+  @apply mt-0;
+}
+
+.message-content p:last-child {
+  @apply mb-0;
+}
+
+.message-content ul, .message-content ol {
+  @apply my-2 pl-5;
+}
+
+.message-content li {
+  @apply my-1;
+}
+
+.message-content h1, .message-content h2, .message-content h3 {
+  @apply font-semibold mt-4 mb-2;
+}
+
+.message-content a {
+  @apply text-primary-600 hover:text-primary-700 underline underline-offset-2;
+}
+
+/* Tool card styles */
+.tool-card {
+  @apply bg-gradient-to-br from-zinc-50 to-zinc-100 border border-zinc-200 rounded-xl p-3 my-3 animate-fade-in;
+}
+
+.tool-card-header {
+  @apply flex items-center gap-2 text-sm font-medium text-zinc-700;
+}
+
+.tool-card-content {
+  @apply text-xs text-zinc-600 mt-2 font-mono bg-white/80 p-3 rounded-lg overflow-x-auto border border-zinc-200/50;
+}
+
+/* Tool status badges */
+.tool-badge {
+  @apply px-2.5 py-1 rounded-full text-xs font-medium inline-flex items-center gap-1.5;
+}
+
+.tool-badge-pending {
+  @apply bg-zinc-100 text-zinc-600;
+}
+
+.tool-badge-running {
+  @apply bg-primary-100 text-primary-700;
+}
+
+.tool-badge-completed {
+  @apply bg-emerald-100 text-emerald-700;
+}
+
+.tool-badge-cancelled {
+  @apply bg-red-100 text-red-700;
+}
+
+.tool-badge-confirm {
+  @apply bg-amber-100 text-amber-700;
+}
+
+/* Loading animation */
+@keyframes bounce-dot {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.loading-dot {
+  @apply w-2 h-2 bg-primary-400 rounded-full;
+  animation: bounce-dot 1.4s ease-in-out infinite;
+}
+
+.loading-dot:nth-child(1) { animation-delay: 0s; }
+.loading-dot:nth-child(2) { animation-delay: 0.16s; }
+.loading-dot:nth-child(3) { animation-delay: 0.32s; }
+
+/* Input focus glow */
+.input-glow:focus {
+  @apply ring-2 ring-primary-500/30 border-primary-400;
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+}
+
+/* Button hover effects */
+.btn-primary {
+  @apply bg-gradient-to-r from-primary-600 to-primary-500 text-white font-medium
+         rounded-xl shadow-soft hover:shadow-glow transition-all duration-200
+         hover:from-primary-500 hover:to-primary-400 active:scale-95;
+}
+
+.btn-secondary {
+  @apply bg-white text-zinc-700 font-medium rounded-xl shadow-soft border border-zinc-200
+         hover:bg-zinc-50 hover:border-zinc-300 transition-all duration-200 active:scale-95;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-2xl shadow-soft border border-zinc-100 overflow-hidden;
+}
+
+.card-header {
+  @apply px-4 py-3 border-b border-zinc-100 bg-gradient-to-r from-zinc-50 to-white;
+}
+
+/* Safe area insets for mobile */
+.safe-area-bottom {
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 8px);
+}
+
+.safe-area-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Glassmorphism effect */
+.glass {
+  @apply bg-white/80 backdrop-blur-lg border border-white/20;
+}
+
+/* Message animations */
+.message-enter {
+  @apply animate-slide-up;
+}
+
+/* Floating action button */
+.fab {
+  @apply fixed bottom-24 right-4 w-12 h-12 rounded-full shadow-lg
+         flex items-center justify-center transition-all duration-200
+         hover:scale-110 active:scale-95;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .message-user, .message-assistant {
+    @apply max-w-[90%];
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  /* Add dark mode styles here if needed */
+}

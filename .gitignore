@@ -8,3 +8,8 @@ gemini-cli/
 # OS
 .DS_Store
 Thumbs.db
+
+# Web
+web/dist
+web/node_modules
+web/.vscode
